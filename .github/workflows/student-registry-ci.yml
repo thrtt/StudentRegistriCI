@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -26,21 +25,10 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Start application in background
         run: npm start & npx wait-on http://localhost:8081
 
       - name: Run integration tests
         run: npm test
-
-      - name: Install Mocha globally
-        run: npm install -g mocha
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npx mocha tests/*.js
-
-
