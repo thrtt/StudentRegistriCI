@@ -37,3 +37,10 @@ jobs:
       - name: Install Mocha globally
         run: npm install -g mocha
 
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npx mocha tests/*.js
+
+
