@@ -31,5 +31,8 @@ jobs:
       - name: Start application in background
         run: npm start & npx wait-on http://localhost:8081
 
+      - name: Check mocha binary
+        run: ls -l node_modules/.bin/mocha
+
       - name: Run tests
         run: npx mocha tests/*.js
