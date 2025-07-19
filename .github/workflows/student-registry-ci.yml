@@ -33,3 +33,7 @@ jobs:
 
       - name: Run integration tests
         run: npm test
+
+      - name: Install Mocha globally
+        run: npm install -g mocha
+
