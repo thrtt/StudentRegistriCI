@@ -9,11 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [18.x]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,8 +25,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Fix permissions for mocha
+        run: chmod +x ./node_modules/.bin/mocha
+
       - name: Start application in background
         run: npm start & npx wait-on http://localhost:8081
 
-      - name: Run integration tests
+      - name: Run tests
         run: npm test
