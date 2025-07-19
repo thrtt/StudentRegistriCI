@@ -26,4 +26,5 @@ jobs:
       
       - run: npm start & npx wait-on http://localhost:8081
       
-      - run: npm test
+      - run: npm ci
+      - run: npx mocha tests/*.js
